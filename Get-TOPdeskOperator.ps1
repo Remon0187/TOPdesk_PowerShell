@@ -1,19 +1,25 @@
 function Get-TOPdeskOperator {
 
-<#
-.DESCRIPTION 
-Returns id, name pair if the user is an active TOPdesk Operator. Archived users are excluded. 
-Boolean is useful for including in a workflow which requires to check if an user is a TOPdesk Operator.
-#>
+    <#
+    .DESCRIPTION 
+        Returns id, name pair if the user is an active TOPdesk Operator. Archived users are excluded. 
+        Boolean is useful for including in a workflow which requires to check if an user is a TOPdesk Operator.
+    
+    .PARAMETER Name
+        Name of the operator to look up      
+
+    .PARAMETER Api_Endpoint
+        The API endpoint that will be used as part of the HTTP request.
+
+    .PARAMETER Boolean
+        Returns boolean True if the found user is an active operator.
+
+    #>
     param (
         [Parameter(Position = 0, Mandatory = $true)]
         [string]$Name,
-        [Parameter(Position = 1, Mandatory = $False)]
-        [string]$Api_Key,
         [Parameter(Position = 2, Mandatory = $false)]
         [string]$Api_Endpoint = '/operators/lookup/',
-        [Parameter(Position = 3, Mandatory = $false)]
-        [string]$Base_url,
         [Parameter(Position = 4, Mandatory = $false)]
         [switch]$Boolean
 
